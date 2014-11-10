@@ -44,7 +44,7 @@ def decorate(webapp):
     @webapp.route("/join", methods=['POST'])
     def join():
         print request.remote_addr
-        slaves.add(request.remote_addr, transport.PORT)
+        slaves.add((request.remote_addr, transport.PORT))
         return "ok"
 
     @webapp.route("/presult", methods=['POST'])
