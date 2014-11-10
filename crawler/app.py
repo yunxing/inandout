@@ -10,7 +10,7 @@ app.debug = True
 slave.decorate(app, transport.PORT)
 try:
     ip = socket.gethostbyname('master') # result from hosts file
-    join(ip, transport.PORT)
+    transport.join(ip, transport.PORT)
 except socket.error:
     # Coudldn't find master node, run as master
     master.decorate(app)
